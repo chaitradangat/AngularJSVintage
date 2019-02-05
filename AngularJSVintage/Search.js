@@ -4,10 +4,13 @@
 
     var app = angular.module("app");
 
-    var SearchController = function($scope) {
+    var SearchController = function ($scope, GithubService) {
 
         $scope.Search = function () {
-            console.log($scope.username);
+
+            GithubService.GetGithubUser($scope.username);
+
+            //console.log($scope.username);
         }
     }
 
