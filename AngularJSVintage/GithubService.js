@@ -17,10 +17,25 @@
                 .then(GetGithubUserOnComplete, GetGithubUserOnError);
         }
 
+        //#start code for get reporsitory list
+        var GetGithubRepositoryListOnComplete = function (response) {
+            console.log(response.data);
+        }
+
+        var GetGithubRepositoryListOnError = function (response) {
+            console.log(response.data);
+        }
+
+        var GetGithubRepositoryList = function (username) {
+            $http.get('' + username)
+                .then(GetGithubRepositoryListOnComplete, GetGithubRepositoryListOnError);
+        }
+        //#end code for get reporsitory list
+
         return {
 
-            GetGithubUser: GetGithubUser
-
+            GetGithubUser: GetGithubUser,
+            GetGithubRepositoryList : GetGithubRepositoryList
         };
     }
 
