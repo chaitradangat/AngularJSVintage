@@ -4,6 +4,8 @@
 
     var GithubService = function ($http) {
 
+        var githubRepolistUrl = 'https://api.github.com/users/:username/repos'
+
         var GetGithubUserOnComplete = function (response) {
             console.log(response.data);
         }
@@ -14,10 +16,10 @@
 
         var GetGithubUser = function (username) {
             $http.get('https://api.github.com/users/' + username)
-                .then(GetGithubUserOnComplete, GetGithubUserOnError);
+                 .then(GetGithubUserOnComplete, GetGithubUserOnError);
         }
 
-        //#start code for get reporsitory list
+        //#start code for get reporsitory list 
         var GetGithubRepositoryListOnComplete = function (response) {
             console.log(response.data);
         }
@@ -27,15 +29,15 @@
         }
 
         var GetGithubRepositoryList = function (username) {
-            $http.get('' + username)
-                .then(GetGithubRepositoryListOnComplete, GetGithubRepositoryListOnError);
+            $http.get(githubRepolistUrl.replace(':username', username))
+                 .then(GetGithubRepositoryListOnComplete, GetGithubRepositoryListOnError);
         }
         //#end code for get reporsitory list
 
         return {
 
             GetGithubUser: GetGithubUser,
-            GetGithubRepositoryList : GetGithubRepositoryList
+            GetGithubRepositoryList: GetGithubRepositoryList
         };
     }
 
