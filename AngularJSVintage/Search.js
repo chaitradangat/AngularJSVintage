@@ -1,4 +1,4 @@
-﻿//The controller for searching user
+﻿//The controller for searching user data
 
 (function () {
 
@@ -11,6 +11,11 @@
             GithubService.GetGithubUser($scope.username);
 
             //console.log($scope.username);
+        }
+
+        $scope.SearchRepoList = function () {
+
+            GithubService.GetGithubRepositoryList($scope.username);
         }
     }
 
