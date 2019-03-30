@@ -19,7 +19,9 @@
                  .then(GetGithubUserOnComplete, GetGithubUserOnError);
         }
 
-        //#start code for get reporsitory list 
+
+        //#region start code for get reporsitory list 
+
         var GetGithubRepositoryListOnComplete = function (response) {
             console.log(response.data);
         }
@@ -32,7 +34,8 @@
             $http.get(githubRepolistUrl.replace(':username', username))
                  .then(GetGithubRepositoryListOnComplete, GetGithubRepositoryListOnError);
         }
-        //#end code for get reporsitory list
+        
+        //#endregion code for get reporsitory list
 
         return {
 
