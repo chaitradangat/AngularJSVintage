@@ -6,6 +6,7 @@
 
         var githubRepolistUrl = 'https://api.github.com/users/:username/repos'
 
+        //#region code for get user 
         var GetGithubUserOnComplete = function (response) {
             console.log(response.data);
         }
@@ -16,11 +17,11 @@
 
         var GetGithubUser = function (username) {
             $http.get('https://api.github.com/users/' + username)
-                 .then(GetGithubUserOnComplete, GetGithubUserOnError);
+                .then(GetGithubUserOnComplete, GetGithubUserOnError);
         }
+        //#endregion
 
-
-        //#region start code for get reporsitory list 
+        //#region code for get repository list 
 
         var GetGithubRepositoryListOnComplete = function (response) {
             console.log(response.data);
@@ -35,7 +36,7 @@
                  .then(GetGithubRepositoryListOnComplete, GetGithubRepositoryListOnError);
         }
         
-        //#endregion code for get reporsitory list
+        //#endregion
 
         return {
 
@@ -43,8 +44,6 @@
             GetGithubRepositoryList: GetGithubRepositoryList
         };
     }
-
-
 
     app.factory("GithubService", GithubService);
 }());
