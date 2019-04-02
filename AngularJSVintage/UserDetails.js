@@ -7,6 +7,10 @@
    
     function UserDetailsController($scope, $http) {
 
+        //Github users endpoint
+        var GitHubApiUsersEndPoint = 'https://api.github.com/users/';
+         
+        //#region Get a user from Github 
         var GetUserDetailsComplete = function (response) {
             console.log(response.data);
             $scope.user = response.data;
@@ -17,10 +21,13 @@
             console.log(response.data);
         }
 
-        $http.get('https://api.github.com/users/chaitradangat')
-            .then(GetUserDetailsComplete, GetUserDetailsError);
+        $scope.GetUserDetails = function () {
+
+            $http.get(GitHubApiUsersEndPoint +'chaitradangat')
+                .then(GetUserDetailsComplete, GetUserDetailsError);
+        }
+        //#endregion
     }
 
     app.controller("UserDetailsController", UserDetailsController);
-
 }());
