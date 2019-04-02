@@ -2,12 +2,18 @@
 
     var app = angular.module("app");
 
-    var UpperCaseCustomFilter = function () {
+    var upperCaseCustomFilter = function () {
         return function (value) {
-            return value.toUpperCase() + ' - converted';
+
+            if (value) {
+                return value.toUpperCase() + ' - converted';
+            }
+            else {
+                return '';
+            }
         }
     }
 
-    app.filter("UpperCaseCustomFilter",UpperCaseCustomFilter);
+    app.filter("upperCaseCustomFilter",upperCaseCustomFilter);
 
 }());
