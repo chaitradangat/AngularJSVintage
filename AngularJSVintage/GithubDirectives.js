@@ -4,7 +4,7 @@
 
     //#follow safe convention that all directives in angular shud be all lower case
 
-    //#region Angular Directive for Rendering html snippet
+    //#region Angular Directive for Rendering html snippet 
     var userdetails = function () {
         return {
             restrict: "AEC",
