@@ -2,7 +2,7 @@
 
     var app = angular.module("app");
 
-    var JsonDataController = function ($scope, $http) {
+    var JsonDataController = function ($scope,$resource) {
 
         var OnJsonDataFetchComplete = function (response) {
             console.log(response.data);
@@ -14,13 +14,15 @@
 
         $scope.GetJsonData = function () {
 
-            $http.get("/testDatajson.json")
+            var jsondata = $resource("/testDatajson.json")
+
+            jsondata.get()
                 .then(OnJsonDataFetchComplete, OnJsonDataFetchError);
 
+            //$http.get("/testDatajson.json")
+                //.then(OnJsonDataFetchComplete, OnJsonDataFetchError);
         }
     }
 
-
     app.controller("JsonDataController", JsonDataController);
-
 })();
