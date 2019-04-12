@@ -21,6 +21,8 @@
 
     <script src="GithubDirectives.js"></script>
 
+    <script src="JsonService.js"></script>
+
 </head>
 <body>
 
@@ -73,6 +75,15 @@
         <div>Testing Filters</div>
         <input type="text" name="txtFilter" ng-model="filterText"/>
         <span> {{ filterText | upperCaseCustomFilter }} </span>
+
+
+        <!--reading json file-->
+        <div ng-controller="JsonDataController" ng-init="GetJsonData()">
+
+
+
+        </div>
+
     </div>
 
 
