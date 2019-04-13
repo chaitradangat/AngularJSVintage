@@ -14,7 +14,7 @@
 
         $scope.GetJsonData = function () {
 
-            var jsondata = $resource("/testDatajson.json")
+            var jsondata = $resource("testDatajson.json");
 
             jsondata.get()
                 .then(OnJsonDataFetchComplete, OnJsonDataFetchError);
