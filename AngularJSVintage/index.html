@@ -23,6 +23,8 @@
 
     <script src="GithubDirectives.js"></script>
 
+    <script src="JsonDataService.js"></script>
+
     <script src="JsonDataController.js"></script>
 
 </head>
@@ -80,8 +82,8 @@
 
 
         <!--reading json file-->
-        <div ng-controller="JsonDataController" ng-init="GetJsonData()">
-
+        <div ng-controller="JsonDataController">
+            {{jsondata}}
         </div>
 
     </div>
