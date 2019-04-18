@@ -2,27 +2,29 @@
 
     var app = angular.module("app");
 
-    var JsonDataController = function ($scope,$resource) {
+    var JsonDataController = function ($scope, JsonDataService) {
 
-        var OnJsonDataFetchComplete = function (response) {
-            console.log(response.data);
-        }
+        //var OnJsonDataFetchComplete = function (response) {
+        //    console.log(response.data);
+        //}
 
-        var OnJsonDataFetchError = function () {
-            console.log("error!");
-        }
+        //var OnJsonDataFetchError = function () {
+        //    console.log("error!");
+        //}
 
-        $scope.GetJsonData = function () {
+        //$scope.GetJsonData = function () {
 
-            var jsondata = $resource("testDatajson.json");
+        //    var jsondata = $resource("testDatajson.json");
 
-            jsondata.get()
-                .then(OnJsonDataFetchComplete, OnJsonDataFetchError);
+        //    jsondata.get()
+        //        .then(OnJsonDataFetchComplete, OnJsonDataFetchError);
 
-            //$http.get("/testDatajson.json")
-                //.then(OnJsonDataFetchComplete, OnJsonDataFetchError);
-        }
-    }
+        //    //$http.get("/testDatajson.json")
+        //        //.then(OnJsonDataFetchComplete, OnJsonDataFetchError);
+        //}
+
+        $scope.jsondata = JsonDataService.FetchJsonData();
+    };
 
     app.controller("JsonDataController", JsonDataController);
 })();
