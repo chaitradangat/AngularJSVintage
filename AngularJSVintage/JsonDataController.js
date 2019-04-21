@@ -23,6 +23,10 @@
         //        //.then(OnJsonDataFetchComplete, OnJsonDataFetchError);
         //}
 
+        debugger;
+
+
+
         $scope.jsondata = JsonDataService.FetchJsonData();
     };
 

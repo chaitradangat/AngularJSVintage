@@ -40,7 +40,7 @@
     var formatstyleattribute = function () {
 
         var linkfunction = function (scope, element, attributes) {
-            debugger;
+            
 
             var attr1 = attributes.$attr["formatstyleattribute"];
             var attr2 = attributes.$attr["attr2"];
