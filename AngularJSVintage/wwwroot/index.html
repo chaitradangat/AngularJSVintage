@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>AngularJS Vintage Project</title>
+
+    <script src="angular.min.js"></script>
+
+    <script src="angular-resource.min.js"></script>
+
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="Script.js"></script>
+
+    <script src="JsonDataService.js"></script>
+
+    <script src="UserDetails.js"></script>
+
+    <script src="GithubService.js"></script>
+
+    <script src="Search.js"></script>
+
+    <script src="GithubFilters.js"></script>
+
+    <script src="GithubDirectives.js"></script>
+
+    <script src="JsonDataController.js"></script>
+
+</head>
+<body>
+
+    <div ng-app="app">
+        <div ng-controller="maincontroller">
+            <h2>This is a {{message}}</h2>
+        </div>
+
+
+        <div ng-controller="SearchController">
+            <input type="text" id="usrSearch" name="usrSearch" ng-model="username" />
+            <input type="submit" id="btnSearch" value="Search" ng-click="Search()" />
+            <input type="submit" id="btnRepoList" value="Repo List" ng-click="SearchRepoList()" />
+        </div>
+
+        <h2>Test..</h2>
+
+        <!--using multiple controllers in the page-->
+        <div ng-controller="UserDetailsController" ng-init="GetUserDetails()">
+
+            <h1>{{ user.location }}</h1>
+
+            <div>
+                <img ng-src="{{user.avatar_url}}" title="{{user.name}} {{user.public_repos}}" height="200" width="200" />
+            </div>
+
+        </div>
+
+        <br />
+        <br />
+
+        <!--using angular directives-->
+        <userdetails></userdetails>
+        <br />
+        <br />
+
+
+        <p formatstyleattribute="value1" attr2="value2">This text will have color</p>
+
+        <br />
+        <br />
+
+        <formatstyle attr1="value1" attr2="value2">
+            <p>Testing directives</p>
+        </formatstyle>
+        <br />
+        <br />
+
+        <!-- using angular filters-->
+        <div>Testing Filters</div>
+        <input type="text" name="txtFilter" ng-model="filterText"/>
+        <span> {{ filterText | upperCaseCustomFilter }} </span>
+
+
+        <!--reading json file-->
+        <div ng-controller="JsonDataController">
+            {{jsondata}}
+        </div>
+
+    </div>
+
+
+</body>
+</html>
