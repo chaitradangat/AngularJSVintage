@@ -4,30 +4,16 @@
 
     var JsonDataController = function ($scope, JsonDataService) {
 
-        //var OnJsonDataFetchComplete = function (response) {
-        //    console.log(response.data);
-        //}
+        var OnJsonDataServiceComplete = function (response) {
+            $scope.jsondata = response.data;
+        };
 
-        //var OnJsonDataFetchError = function () {
-        //    console.log("error!");
-        //}
+        var OnJsonDataServiceError = function (response) {
+            console.log("error retrieving data from service.");
+            console.log(response);
+        };
 
-        //$scope.GetJsonData = function () {
-
-        //    var jsondata = $resource("testDatajson.json");
-
-        //    jsondata.get()
-        //        .then(OnJsonDataFetchComplete, OnJsonDataFetchError);
-
-        //    //$http.get("/testDatajson.json")
-        //        //.then(OnJsonDataFetchComplete, OnJsonDataFetchError);
-        //}
-
-        debugger;
-
-
-
-        $scope.jsondata = JsonDataService.FetchJsonData();
+        JsonDataService.FetchJsonData().then(OnJsonDataServiceComplete, OnJsonDataServiceError);
     };
 
     app.controller("JsonDataController", JsonDataController);
