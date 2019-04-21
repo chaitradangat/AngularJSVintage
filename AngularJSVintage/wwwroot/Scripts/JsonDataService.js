@@ -4,30 +4,19 @@
 
     var JsonDataService = function ($http) {
 
-        var jsonpath = "testDatajson.json";
-
-        var JsonDataServiceOnError = function (reason) {
-            console.log(reason);
-        };
-
-        var JsonDataServiceOnComplete = function (response) {
-
-            console.log(response.data);
-
-            return response.data;
-        };
-
         var FetchJsonData = function () {
 
-            var response = $http.get(jsonpath)
-                .then(JsonDataServiceOnComplete, JsonDataServiceOnError);
+            //var dataPromise = $http.get("https://api.github.com/users/chaitradangat/repos");
 
+            var dataPromise = $http.get("/Scripts/testDatajson.json");
+
+            return dataPromise;
         };
 
-        return
-        {
-            FetchJsonData:FetchJsonData
-        };
+        return {
+            FetchJsonData : FetchJsonData
+        }
+        
     };
 
     app.factory("JsonDataService", JsonDataService);
